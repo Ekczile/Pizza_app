@@ -8,13 +8,22 @@ Pizza size:
 <body>
 <form method = 'post' action = '/checkselected'>
 <p>
+
+<p>
+Crust?<br><br>
+<img src=https://via.placeholder.com/140x100><br>
+<%=crust%>
+</p>
+
+<hr>
+
 Meats:
 
 </p><br>
 <%meats.each do|v|%>
 <img src=https://via.placeholder.com/140x100><br>
     <%=v.concat(" ")%><br>
-    <%# <input type="radio" name="meat[]" value="Yes" checked>Keep?
+<%# <input type="radio" name="meat[]" value="Yes" checked>Keep?
     <input type="radio" name="meat[]" value="No" >Discard?<br><br> %>
 <%end%><br><br>
 
@@ -26,7 +35,7 @@ Vegetables:
 <%veg.each do|v|%>
 <img src=https://via.placeholder.com/140x100><br>
     <%=v.concat(" ")%><br>
-    <%# <input type="radio" name="veggies[]" value="Yes" checked>Keep?
+<%# <input type="radio" name="veggies[]" value="Yes" checked>Keep?
     <input type="radio" name="veggies[]" value="No" >Discard?<br><br> %>
 <%end%><br><br>
 
@@ -57,6 +66,7 @@ Is your order correct?<br>
 <input type="submit" value="Yes">
 <input type="button" onclick="window.location.href='/'" value="No" />
 <input type="hidden" name="size" value='<%=size%>'>
+<input type="hidden" name="crust" value='<%=crust%>'>
 <input type="hidden" name="meat[]" value='<%=meats%>'>
 <input type="hidden" name="veggies[]" value='<%=veg%>'>
 <input type="hidden" name="extras[]" value='<%=extras%>'>
