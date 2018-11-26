@@ -57,13 +57,65 @@ post '/checkselected' do
 end
 
 get '/final' do
+    price = 0
     size = params[:size]
+    if size == "Small"
+        price += 5.00
+    elsif size == "Medium"
+        price += 8.00
+    elsif size == "Large"
+        price += 10.00
+    end
     crust = params[:crust]
+    if crust == "thick"
+        price += 2.00
+    elsif crust == "thin"
+        price += 1.00
+    elsif crust == "cheesey"
+        price += 5.00
+    end
     meats = params[:meat]
+    if meats.include?("ham")
+        price += 1.50
+    end
+    if meats.include?("pepperoni")
+        price += 1.50
+    end
+    if meats.include?("sausage")
+        price += 1.50
+    end
     veg = params[:veggies]
+    if veg.include?("pineapple")
+        price += 1.50
+    end
+    if veg.include?("peppers")
+        price += 1.50
+    end
+    if veg.include?("mushrooms")
+        price += 1.50
+    end
     extras = params[:extras]
+    if extras.include?("ham")
+        price += 1.50
+    end
+    if extras.include?("pepperoni")
+        price += 1.50
+    end
+    if extras.include?("sausage")
+        price += 1.50
+    end
+    if extras.include?("pineapple")
+            price += 1.50
+    end
+    if extras.include?("peppers")
+            price += 1.50
+    end
+    if extras.include?("mushrooms")
+            price += 1.50
+    end
     delivery = params[:delivery]
     address = params[:address]
-    erb :final, locals: {size: size, crust: crust, meats: meats, veg: veg, extras: extras, delivery: delivery, address: address}
+    price = sprintf "%.2f", price
+    erb :final, locals: {size: size, crust: crust, meats: meats, veg: veg, extras: extras, delivery: delivery, address: address, price: price}
 end
 

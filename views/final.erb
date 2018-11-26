@@ -32,45 +32,64 @@
 
 
 <%if meats != ""%>
+<p>
 Meats:
+</p>
 <br>
 <%meats.split(",").each do |v|%>
+<p>
 <div class="<%=v%>">
 <img class="meat"><br>
 </div>
-<%=v%><br><br>
+<p>
+<%=v%>
+</p>
 <%end%>
 <hr>
 <%end%>
 
 
 <%if veg != ""%>
+<p>
 Vegetables:
+</p>
 <br>
 <%veg.split(",").each do |v|%>
 <div class="<%=v%>">
 <img class="veg"><br>
 </div>
-<%=v%><br><br>
+<p>
+<%=v%>
+</p>
 <%end%>
 <hr>
 <%end%>
 
 
 <%if extras != ""%>
+<p>
 Extras:<br>
+</p>
 <%extras.split(",").each do |v|%>
 <div class="<%=v%>">
 <img class="extras"><br>
 </div>
-<%=v%><br><br>
+<p>
+<%=v%>
+</p>
 <%end%>
 <hr>
 <%end%>
 
 
 <p>
-<%=address%>
+Price: <%=price%>
+</p>
+
+<hr>
+
+<p>
+Deliver to:<%=address%>
 </p> 
 <div>
 
