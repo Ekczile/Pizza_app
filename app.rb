@@ -7,9 +7,12 @@ end
 post '/home' do
     size = params[:size]
     crust = params[:crust]
-    meats = params[:meat].join(",")
-    veg = params[:veggies].join(",")
-    extras = params[:extras].join(",")
+    meats = params[:meat].join(",") if params[:meat]
+    meats = "" if !params[:meat]
+    veg = params[:veggies].join(",") if params[:veggies]
+    veg = "" if !params[:veggies]
+    extras = params[:extras].join(",") if params[:extras]
+    extras = "" if !params[:extras]
     delivery = params[:delivery]
     redirect 'checkselected?size=' + size + '&crust=' + crust + '&meat=' + meats + '&veggies=' + veg + '&extras=' + extras + '&delivery=' + delivery
 end
@@ -30,7 +33,7 @@ post '/checkselected' do
     meats = eval(params[:meat].join(","))
     meatplaceholder = Array.new
     meats.each do |v|
-        meatplaceholder << v if params[v.to_sym] == "Yes"
+    meatplaceholder << v if params[v.to_sym] == "Yes"
     end
     meats = meatplaceholder.join(",")
 

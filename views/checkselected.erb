@@ -1,74 +1,83 @@
 <link rel="stylesheet" href="css/style.css">
 
-<center>
+<div class="bg">
 
+<center>
 <header>
 <center><p>Welcome To Cresong's Pizz'o'rama</p></center>
 </header>
 
 <hr>
-
+<p>
 <%=size%>
 <br>
 <div class="<%=size%>">
-<div>
-<br><br><br><br><br><br>
+</p><br>
+</div>
+
+
 
 
 <hr>
 
 <body>
 <form method = 'post' action = '/checkselected'>
-<p>
 
 <p>
-Crust?<br><br>
-<img class="<%=crust%>"><br>
 <%=crust%>
 </p>
-
-<hr>
-
-Meats:
-
-</p><br>
-<%meats.each do|v|%>
-<div class="<%=v%>">
-<br>
+<div class="<%=crust%>">
 </div>
-    <%=v%><br>
-    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
-    <input type="radio" name="<%=v%>" value="No" >Discard?<br><br>
-<%end%><br><br>
 
 <hr>
 
+<%meats.each do|v|%>
+<p>
+Meats:<br>
+</p>
+<p>
+<%=v%><br>
+</p>
+<div class="<%=v%>">
+</div><br>
+    <p>
+    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
+    <input type="radio" name="<%=v%>" value="No" >Discard?
+     </p>
+     <hr>
+<%end%>
+
+
+<%veg.each do|v|%>
 <p>
 Vegetables:
-</p><br>
-<%veg.each do|v|%>
-<div class="<%=v%>"><br>
+</p>
+<p>
+<%=v%><br>
+</p>
+<div class="<%=v%>">
 </div>
-    <%=v%><br>
+<p>
     <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
-    <input type="radio" name="<%=v%>" value="No" >Discard?<br><br>
-<%end%><br><br>
+    <input type="radio" name="<%=v%>" value="No" >Discard?
+    </p>
+    <hr>
+<%end%>
 
 
-<hr>
-
+<%extras.each do|v|%>
 <p>
 Extras:
-</p><br>
-<%extras.each do|v|%>
-    <div class="<%=v%>"><br>
+</p>
+    <div class="<%=v%>">
 </div>
     <%=v%><br>
+    <p>
     <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
-    <input type="radio" name="<%=v%>" value="No" >Discard?<br><br>
-<%end%><br><br>
-
-<hr>
+    <input type="radio" name="<%=v%>" value="No" >Discard?
+    </p>
+    <hr>
+<%end%>
 
 
 <%if delivery == "Yes"%>
@@ -93,4 +102,4 @@ Extras:
 </center>
 </form>
 </body>
-
+</div>
