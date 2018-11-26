@@ -1,11 +1,19 @@
 <link rel="stylesheet" href="css/style.css">
 
 <center>
+
 <header>
-Pizza size:
-</header><br>
-<img src=https://via.placeholder.com/140x100><br>
-<%=size%><br><br>
+<center><p>Welcome To Cresong's Pizz'o'rama</p></center>
+</header>
+
+<hr>
+
+<p>
+<%=size%>
+<br>
+<img class="<%=size%>"<br>
+</p>
+<br>
 
 
 <hr>
@@ -14,9 +22,9 @@ Pizza size:
 
 <p>
 Crust?<br><br>
-<img src=https://via.placeholder.com/140x100><br>
+<img class="<%=crust%>"><br>
 <%=crust%>
-</p>
+
 
 <hr>
 
@@ -26,7 +34,7 @@ Meats:
 <br>
 <%meats.split(",").each do |v|%>
 <div class="<%=v%>">
-<img src=https://via.placeholder.com/140x100><br>
+<img class="meat"><br>
 </div>
 <%=v%><br><br>
 <%end%>
@@ -39,7 +47,7 @@ Vegetables:
 <br>
 <%veg.split(",").each do |v|%>
 <div class="<%=v%>">
-<img src=https://via.placeholder.com/140x100><br>
+<img class="veg"><br>
 </div>
 <%=v%><br><br>
 <%end%>
@@ -51,7 +59,7 @@ Vegetables:
 Extras:<br>
 <%extras.split(",").each do |v|%>
 <div class="<%=v%>">
-<img src=https://via.placeholder.com/140x100><br>
+<img class="extras"><br>
 </div>
 <%=v%><br><br>
 <%end%>

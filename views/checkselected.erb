@@ -1,19 +1,29 @@
 <link rel="stylesheet" href="css/style.css">
 
 <center>
+
 <header>
-Pizza size:
-</header><br>
-<%=size%><br><br>
+<center><p>Welcome To Cresong's Pizz'o'rama</p></center>
+</header>
 
 <hr>
+
+<%=size%>
+<br>
+<div class="<%=size%>">
+<div>
+<br><br><br><br><br><br>
+
+
+<hr>
+
 <body>
 <form method = 'post' action = '/checkselected'>
 <p>
 
 <p>
 Crust?<br><br>
-<img src=https://via.placeholder.com/140x100><br>
+<img class="<%=crust%>"><br>
 <%=crust%>
 </p>
 
@@ -24,10 +34,10 @@ Meats:
 </p><br>
 <%meats.each do|v|%>
 <div class="<%=v%>">
-<img src=https://via.placeholder.com/140x100><br>
+<br>
 </div>
     <%=v%><br>
-    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?
+    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
     <input type="radio" name="<%=v%>" value="No" >Discard?<br><br>
 <%end%><br><br>
 
@@ -37,11 +47,10 @@ Meats:
 Vegetables:
 </p><br>
 <%veg.each do|v|%>
-<div class="<%=v%>">
-<img src=https://via.placeholder.com/140x100><br>
+<div class="<%=v%>"><br>
 </div>
     <%=v%><br>
-    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?
+    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
     <input type="radio" name="<%=v%>" value="No" >Discard?<br><br>
 <%end%><br><br>
 
@@ -52,11 +61,10 @@ Vegetables:
 Extras:
 </p><br>
 <%extras.each do|v|%>
-<img src=https://via.placeholder.com/140x100><br>
-    <div class="<%=v%>">
+    <div class="<%=v%>"><br>
 </div>
     <%=v%><br>
-    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?
+    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
     <input type="radio" name="<%=v%>" value="No" >Discard?<br><br>
 <%end%><br><br>
 

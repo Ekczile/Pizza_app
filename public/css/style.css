@@ -2,16 +2,88 @@ body {
     background-color: black;
     background-image: url('/pictures/giphy.gif');
     background-size: contain;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat: repeat;
+    background-attachment: scroll;
     background-position: center;
-    
-    
-
 }
 hr {
     color: #f00;
-background-color: #f00;
-height: 2px;
-width: 48vw;
+background-color: rgba(255, 0, 0, 0);
+height: 4px;
+}
+
+.ham {
+    background-image: url('/pictures/ham.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+.sausage {
+    background-image: url('/pictures/sausage.jpg');
+    width: 140px;
+    height: 100px;
+
+}
+
+.pepperoni {
+    background-image: url('/pictures/pepperoni.gif');
+    width: 140px;
+    height: 100px;
+}
+
+.pineapple {
+    background-image: url('/pictures/pineapple.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+.peppers {
+    background-image: url('/pictures/peppers.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+.mushrooms {
+    background-image: url('/pictures/mushrooms.jpg');
+    width: 140px;
+    height: 100px;
+}
+.small {
+    background-image: url('/pictures/small.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+.medium {
+    background-image: url('/pictures/medium.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+.large {
+    background-image: url('/pictures/large.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+.thick {
+    background-image: url('/pictures/thick.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+.thin {
+    background-image: url('/pictures/thin.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+.cheesey {
+    background-image: url('/pictures/cheesey.jpg');
+    width: 140px;
+    height: 100px;
+}
+
+header {
+    font-size: 40px;
 }
