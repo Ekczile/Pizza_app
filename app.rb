@@ -27,7 +27,15 @@ end
 post '/checkselected' do
     size = params[:size]
     crust = params[:crust]
-    meats = params[:meat].join(",")
+    meats = eval(params[:meat].join(","))
+    meatplaceholder = Array.new
+    p "this is meats before do #{meats}"
+    meats.each do |v|
+        meatplaceholder << v if params[v.to_sym] == "Yes"
+    end
+    p "this is meat place holder #{meatplaceholder}"
+    meats = meatplaceholder.join(",")
+    p "this is meats after mod #{meats}"
     veg = params[:veggies].join(",")
     extras = params[:extras].join(",")
     delivery = params[:delivery]
@@ -37,7 +45,7 @@ end
 get '/final' do
     size = params[:size]
     crust = params[:crust]
-    meats = eval(params[:meat])
+    meats = params[:meat]
     veg = eval(params[:veggies])
     extras = eval(params[:extras])
     delivery = params[:delivery]
