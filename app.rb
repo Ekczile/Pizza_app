@@ -29,26 +29,38 @@ post '/checkselected' do
     crust = params[:crust]
     meats = eval(params[:meat].join(","))
     meatplaceholder = Array.new
-    p "this is meats before do #{meats}"
     meats.each do |v|
         meatplaceholder << v if params[v.to_sym] == "Yes"
     end
-    p "this is meat place holder #{meatplaceholder}"
     meats = meatplaceholder.join(",")
-    p "this is meats after mod #{meats}"
-    veg = params[:veggies].join(",")
-    extras = params[:extras].join(",")
+
+    veg = eval(params[:veggies].join(","))
+    vegplaceholder = Array.new
+    veg.each do |v|
+        vegplaceholder << v if params[v.to_sym] == "Yes"
+    end
+    veg = vegplaceholder.join(",")
+
+    extras = eval(params[:extras].join(","))
+    extrasplaceholder = Array.new
+    extras.each do |v|
+        extrasplaceholder << v if params[v.to_sym] == "Yes"
+    end
+    extras = extrasplaceholder.join(",")
     delivery = params[:delivery]
-    redirect 'final?size=' + size + '&crust=' + crust + '&meat=' + meats + '&veggies=' + veg + '&extras=' + extras + '&delivery=' + delivery
+    address = params[:address] if params[:address]
+    address = "" if !params[:address]
+    redirect 'final?size=' + size + '&crust=' + crust + '&meat=' + meats + '&veggies=' + veg + '&extras=' + extras + '&delivery=' + delivery + '&address=' + address
 end
 
 get '/final' do
     size = params[:size]
     crust = params[:crust]
     meats = params[:meat]
-    veg = eval(params[:veggies])
-    extras = eval(params[:extras])
+    veg = params[:veggies]
+    extras = params[:extras]
     delivery = params[:delivery]
-    erb :final, locals: {size: size, crust: crust, meats: meats, veg: veg, extras: extras, delivery: delivery}
+    address = params[:address]
+    erb :final, locals: {size: size, crust: crust, meats: meats, veg: veg, extras: extras, delivery: delivery, address: address}
 end
 

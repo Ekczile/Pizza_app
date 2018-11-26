@@ -37,10 +37,12 @@ Meats:
 Vegetables:
 </p><br>
 <%veg.each do|v|%>
+<div class="<%=v%>">
 <img src=https://via.placeholder.com/140x100><br>
-    <%=v.concat(" ")%><br>
-<%# <input type="radio" name="veggies[]" value="Yes" checked>Keep?
-    <input type="radio" name="veggies[]" value="No" >Discard?<br><br> %>
+</div>
+    <%=v%><br>
+    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?
+    <input type="radio" name="<%=v%>" value="No" >Discard?<br><br>
 <%end%><br><br>
 
 
@@ -51,20 +53,26 @@ Extras:
 </p><br>
 <%extras.each do|v|%>
 <img src=https://via.placeholder.com/140x100><br>
-    <%=v.concat(" ")%><br>
-    <%# <input type="radio" name="extras[]" value="Yes" checked>Keep?
-    <input type="radio" name="extras[]" value="No" >Discard?<br><br> %>
+    <div class="<%=v%>">
+</div>
+    <%=v%><br>
+    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?
+    <input type="radio" name="<%=v%>" value="No" >Discard?<br><br>
 <%end%><br><br>
 
 <hr>
 
+
+<%if delivery == "Yes"%>
 <p>
-Delivery?
 </p> <br>
-<%=delivery%>
-
-
+<p>Address?</p>
+<input type="text" name="address">
 <hr>
+<%end%>
+
+
+
 
 <br>
 <input type="submit" value="Submit">

@@ -4,7 +4,9 @@
 <header>
 Pizza size:
 </header><br>
+<img src=https://via.placeholder.com/140x100><br>
 <%=size%><br><br>
+
 
 <hr>
 <body>
@@ -18,39 +20,47 @@ Crust?<br><br>
 
 <hr>
 
-<p>
-Meats:
-</p><br>
+
 <%if meats != ""%>
-<%=meats%>
+Meats:
+<br>
+<%meats.split(",").each do |v|%>
+<div class="<%=v%>">
+<img src=https://via.placeholder.com/140x100><br>
+</div>
+<%=v%><br><br>
+<%end%>
+<hr>
 <%end%>
 
-<hr>
 
-<p>
+<%if veg != ""%>
 Vegetables:
-</p><br>
-<%veg.each do|v|%>
+<br>
+<%veg.split(",").each do |v|%>
+<div class="<%=v%>">
 <img src=https://via.placeholder.com/140x100><br>
-    <%=v.concat(" ")%><br>
-<%end%><br><br>
-
+</div>
+<%=v%><br><br>
+<%end%>
 <hr>
+<%end%>
+
+
+<%if extras != ""%>
+Extras:<br>
+<%extras.split(",").each do |v|%>
+<div class="<%=v%>">
+<img src=https://via.placeholder.com/140x100><br>
+</div>
+<%=v%><br><br>
+<%end%>
+<hr>
+<%end%>
+
 
 <p>
-Extras:
-</p><br>
-<%extras.each do|v|%>
-<img src=https://via.placeholder.com/140x100><br>
-    <%=v.concat(" ")%><br>
-<%end%><br><br>
-
-<hr>
-
-<p>
-Delivery?
-</p> <br>
-<%=delivery%>
+<%=address%>
+</p> 
 
 
-<hr>
