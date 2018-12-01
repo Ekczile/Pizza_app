@@ -1,3 +1,4 @@
+
 .bg {
     background-color: black;
     background-image: url('/pictures/giphy.gif');
@@ -10,6 +11,7 @@
 
 hr {
     color: #f00;
+
 height: 4px;
 }
 

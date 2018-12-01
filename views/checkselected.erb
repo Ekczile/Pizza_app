@@ -15,9 +15,6 @@
 </p><br>
 </div>
 
-
-
-
 <hr>
 
 <body>
@@ -72,7 +69,6 @@ Extras:
 </p>
     <div class="<%=v%>">
 </div>
-    
     <p>
     <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
     <input type="radio" name="<%=v%>" value="No" >Discard?
@@ -80,23 +76,21 @@ Extras:
     <hr>
 <%end%>
 
-
-<%if delivery == "Yes"%>
-<p>
-</p> <br>
-<p>Address?</p>
-<input type="text" pattern="[a-zA-Z0-9\s]{3,}" name="address">
-<hr>
-<%end%>
+<h2 id="delivery">
+<input type="radio" name="delivery" value="New Pizza">New Pizza?<br>
+<p>Delivery?</p>
+<input type="radio" name="delivery" value="Yes">Yes
+<input type="radio" name="delivery" value="No" checked>No
+</h2>
 
 <input type="submit" value="Submit">
 <input type="button" value="Reset" onclick="window.location.href='/'"/> 
 <input type="hidden" name="size" value='<%=size%>'>
 <input type="hidden" name="crust" value='<%=crust%>'>
-<input type="hidden" name="meat[]" value='<%=meats%>'>
-<input type="hidden" name="veggies[]" value='<%=veg%>'>
-<input type="hidden" name="extras[]" value='<%=extras%>'>
-<input type="hidden" name="delivery" value='<%=delivery%>'>
+<input type="hidden" name="meat" value='<%=meats%>'>
+<input type="hidden" name="veggies" value='<%=veg%>'>
+<input type="hidden" name="extras" value='<%=extras%>'>
+<input type="hidden" name="apizza" value='<%=anotherpizza%>'>
 </center>
 </form>
 </body>

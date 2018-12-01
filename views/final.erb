@@ -8,79 +8,20 @@
 <center><p>Welcome To Cresong's Pizz'o'rama</p></center>
 </header>
 
-<hr>
-
-<p>
-<%=size%>
+<h2>
+ Pizza List: <br>
+ <%counter = 0%>
+<%anotherpizza.gsub("\""," ").gsub("\]", "").gsub("\[", "").split().each do |v|%>
+<%if v == "Small" || v == "Medium" || v == "Large"%>
+<%counter += 1%>
 <br>
-<img class="<%=size%>"<br>
-</p>
+<%=counter.to_s.concat(": ")%>
 <br>
-
-
-<hr>
-<body>
-<form method = 'post' action = '/checkselected'>
-
-<p>
-<%=crust%><br>
-<img class="<%=crust%>"><br>
-<p>
-
-
-<hr>
-
-
-<%if meats != ""%>
-<p>
-Meats:
-</p>
+<%end%>
+<%=v.concat(" ")%>
 <br>
-<%meats.split(",").each do |v|%>
-<p>
-<div class="<%=v%>">
-<img class="meat"><br>
-</div>
-<p>
-<%=v%>
-</p>
 <%end%>
-<hr>
-<%end%>
-
-
-<%if veg != ""%>
-<p>
-Vegetables:
-</p>
-<br>
-<%veg.split(",").each do |v|%>
-<div class="<%=v%>">
-<img class="veg"><br>
-</div>
-<p>
-<%=v%>
-</p>
-<%end%>
-<hr>
-<%end%>
-
-
-<%if extras != ""%>
-<p>
-Extras:<br>
-</p>
-<%extras.split(",").each do |v|%>
-<div class="<%=v%>">
-<img class="extras"><br>
-</div>
-<p>
-<%=v%>
-</p>
-<%end%>
-<hr>
-<%end%>
-
+</h2>
 
 <p>
 Price: <%=price%>
@@ -88,8 +29,15 @@ Price: <%=price%>
 
 <hr>
 
+<%if delivery == "Yes"%>
 <p>
-Deliver to:<%=address%>
-</p> 
+</p> <br>
+<p>Address?</p>
+<form method = 'post' action = '/final'>
+<input type="text" pattern="[a-zA-Z0-9\s]{3,}" min="3"  max="24"name="address">
+<input type="submit" value="Submit">
+</form>
+<hr>
+<%end%>
 <div>
 
