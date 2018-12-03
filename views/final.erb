@@ -27,22 +27,21 @@
 Price: <%=price%>
 </p>
 <br>
+<br>
+<hr>
 <%if delivery == "Yes"%>
 <p>
 </p> <br>
 <p>Address?</p>
 <form method = 'post' action = '/final'>
-<input type="text" pattern="[a-zA-Z0-9\s]{3,}" min="3"  max="24"name="address">
+<input type="text" pattern="[a-zA-Z0-9\s]{3,}" min="3"  max="24"name="address" required>
 <input type="submit" value="Submit">
 </form>
 <hr>
 <%end%><br>
 <br>
+<input type="button" value="Reset" onclick="window.location.href='/'"/>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<hr>
 <div>
 
