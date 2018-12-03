@@ -28,49 +28,46 @@
 
 <hr>
 
-<p>
-Meats:<br>
-</p>
+
 <%meats.each do|v|%>
 <p>
+Meats:<br>
 <%=v%><br>
 </p>
 <div class="<%=v%>">
 </div><br>
     <p>
-    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
+    <input type="radio" name="<%=v%>" value="Yes" checked="checked">Keep?<br>
     <input type="radio" name="<%=v%>" value="No" >Discard?
      </p>
      <hr>
 <%end%>
 
-<p>
-Vegetables:
-</p>
+
 <%veg.each do|v|%>
 <p>
+Vegetables:<br>
 <%=v%><br>
 </p>
 <div class="<%=v%>">
 </div>
     <p>
-    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
+    <input type="radio" name="<%=v%>" value="Yes" checked="checked">Keep?<br>
     <input type="radio" name="<%=v%>" value="No" >Discard?
     </p>
     <hr>
 <%end%>
 
-<p>
-Extras:
-</p>
+
 <%extras.each do|v|%>
 <p>
+Extras:<br>
 <%=v%><br>
 </p>
     <div class="<%=v%>">
 </div>
     <p>
-    <input type="radio" name="<%=v%>" value="Yes" checked>Keep?<br>
+    <input type="radio" name="<%=v%>" value="Yes" checked="checked">Keep?<br>
     <input type="radio" name="<%=v%>" value="No" >Discard?
     </p>
     <hr>
