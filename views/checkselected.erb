@@ -1,11 +1,12 @@
 <link rel="stylesheet" href="css/style.css">
 
-<div class="bg">
 
+<div class="bg">
 <center>
 <header>
 <center><p>Welcome To Cresong's Pizz'o'rama</p></center>
 </header>
+<body>
 
 <hr>
 <p>
@@ -17,7 +18,7 @@
 
 <hr>
 
-<body>
+
 <form method = 'post' action = '/checkselected'>
 
 <p>
@@ -29,22 +30,22 @@
 <hr>
 
 
-<%meats.each do|v|%>
+<%meats.each do |v|%>
 <p>
 Meats:<br>
 <%=v%><br>
 </p>
 <div class="<%=v%>">
 </div><br>
-    <p>
+<p>
     <input type="radio" name="<%=v%>" value="Yes" checked="checked">Keep?<br>
     <input type="radio" name="<%=v%>" value="No" >Discard?
-     </p>
+</p>
      <hr>
 <%end%>
 
 
-<%veg.each do|v|%>
+<%veg.each do |v|%>
 <p>
 Vegetables:<br>
 <%=v%><br>
@@ -59,7 +60,7 @@ Vegetables:<br>
 <%end%>
 
 
-<%extras.each do|v|%>
+<%extras.each do |v|%>
 <p>
 Extras:<br>
 <%=v%><br>
@@ -90,5 +91,5 @@ Extras:<br>
 <input type="hidden" name="apizza" value='<%=anotherpizza%>'>
 </center>
 </form>
-</body>
 </div>
+</body>

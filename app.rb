@@ -9,11 +9,11 @@ end
 post '/home' do
     size = params[:size]
     crust = params[:crust]
-    meats = params[:meat].join(',') if params[:meat]
+    meats = params[:meat].join(', ') if params[:meat]
     meats = "" if !params[:meat]
-    veg = params[:veggies].join(',') if params[:veggies]
+    veg = params[:veggies].join(', ') if params[:veggies]
     veg = "" if !params[:veggies]
-    extras = params[:extras].join(',') if params[:extras]
+    extras = params[:extras].join(', ') if params[:extras]
     extras = "" if !params[:extras]
     anotherpizza = params[:apizza]
     redirect 'checkselected?size=' + size + '&crust=' + crust + '&meat=' + meats + '&veggies=' + veg + '&extras=' + extras + '&apizza=' + anotherpizza
@@ -22,38 +22,63 @@ end
 get '/checkselected' do
     size = params[:size]
     crust = params[:crust]
-    meats = params[:meat].split(",")
-    veg = params[:veggies].split(",")
-    extras = params[:extras].split(",")
+    meats = params[:meat].split(", ")
+    veg = params[:veggies].split(", ")
+    extras = params[:extras].split(", ")
     delivery = params[:delivery]
     anotherpizza = params[:apizza]
     erb :checkselected, locals: {size: size, crust: crust, meats: meats, veg: veg, extras: extras, delivery: delivery, anotherpizza: anotherpizza}
 end
 
 post '/checkselected' do
+    puts "params before anything #{params}"
     size = params[:size]
     crust = params[:crust]
-    meats = params[:meat].split(",")
+    meats = params[:meat].split(", ")
     meatplaceholder = Array.new
-    meats.each do |v|
-    meatplaceholder << v if params[v.to_sym] != "No"
-    p "this is  my meat #{v}"
-    end
-    p "this is meats #{meats} this is meatsplaceholder #{meatplaceholder}"
+        if params["ham"] == "Yes"
+            meatplaceholder << "ham "
+        end
+        if params["pepperoni"] == "Yes"
+            meatplaceholder << "pepperoni "
+        end
+        if params["sausage"] == "Yes"
+            meatplaceholder << "sausage "
+        end
     meats = meatplaceholder
-    
-    veg = params[:veggies].split(",")
+   
+    veg = params[:veggies].split(", ")
     vegplaceholder = Array.new
-    veg.each do |v|
-        vegplaceholder << v if params[v.to_sym] != "No"
-    p "this is v #{v}"
+    if params["pineapple"] == "Yes"
+        vegplaceholder << "pineapple "
+    end
+    if params["peppers"] == "Yes"
+        vegplaceholder << "peppers "
+    end
+    if params["mushrooms"] == "Yes"
+        vegplaceholder << "mushrooms "
     end
     veg = vegplaceholder
 
-    extras = params[:extras].split(",")
+    extras = params[:extras].split(", ")
     extrasplaceholder = Array.new
-    extras.each do |v|
-        extrasplaceholder << v if params[v.to_sym] != "No"
+    if params["ham"] == "Yes"
+        extrasplaceholder << "ham "
+    end
+    if params["extra pepperoni"] == "Yes"
+        extrasplaceholder << "extra pepperoni "
+    end
+    if params["extra sausage"] == "Yes"
+        extrasplaceholder << "extra sausage "
+    end
+    if params["extra pineapple"] == "Yes"
+        extrasplaceholder << "extra pineapple "
+    end
+    if params["extra peppers"] == "Yes"
+        extrasplaceholder << "extra peppers "
+    end
+    if params["extra mushrooms"] == "Yes"
+        extrasplaceholder << "extra mushrooms "
     end
     extras = extrasplaceholder
 
@@ -66,7 +91,7 @@ post '/checkselected' do
     end
         anotherpizza << size
         anotherpizza << crust
-        anotherpizza << meats.join()
+        anotherpizza << meats.join() 
         anotherpizza << veg.join()
         anotherpizza << extras.join()
         anotherpizza = anotherpizza
